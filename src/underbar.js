@@ -190,19 +190,18 @@
 
 
   // Determine whether all of the elements match a truth test.
-  _.every = function(collection, iterator) {
+   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
     if (iterator === undefined) {
       iterator = _.identity;
     }
-    var result = true;
-    return _.reduce(collection, function(failed, item) {
+    return _.reduce(collection, function(a, item) {
       if (!iterator(item)) {
-        result = false;
+        return false;
       }
-      return result;
-    }, result)
-  };
+      return a;
+    }, true)
+    };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
@@ -302,6 +301,7 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+
   };
 
   // Delays a function for the given number of milliseconds, and then calls
